@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Aurelia Atelier: contemporary dresses and statement pieces, available online." />
+  <meta name="theme-color" content="#f3f0e6" />
+  <title>Aurelia Atelier | Shop Contemporary Pieces</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="supabase-config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="wordmark" href="#top">AURELIA <span>ATELIER</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#shop">Shop</a><a href="#atelier">Atelier</a><a href="#journal">Journal</a>
+    </nav>
+    <div class="header-actions">
+      <button class="bag-button" id="openCart" aria-label="Open shopping bag">Bag <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-stage">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-glow"></div>
+        <svg class="hero-garment" viewBox="0 0 640 820" role="img" aria-label="Cobalt fashion silhouette">
+          <defs><linearGradient id="silk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3c72f4"/><stop offset=".55" stop-color="#2457d6"/><stop offset="1" stop-color="#173d9c"/></linearGradient></defs>
+          <ellipse cx="320" cy="720" rx="190" ry="30" fill="#173d9c" opacity=".14"/>
+          <path d="M278 88c-18 52-18 104-7 146l-70 64c-34 31-47 77-36 120l36 140h61l30-204 28 204h72l34-142c9-39-4-84-35-117l-64-66c12-42 14-94-8-145-4-10-13-18-23-18h-1c-9 0-18 8-22 18Z" fill="url(#silk)"/>
+          <path d="M264 226c-22 32-40 56-78 84m160-82c25 34 44 57 80 84" fill="none" stroke="#b7e4d5" stroke-width="4" opacity=".72"/>
+          <path d="M245 285c-8 86-4 175 14 265m145-264c9 83 5 174-13 264" fill="none" stroke="#f3f0e6" stroke-width="3" opacity=".5"/>
+          <path d="M209 414h232" stroke="#5b4468" stroke-width="2" opacity=".5"/><circle cx="320" cy="110" r="24" fill="#f3f0e6" opacity=".9"/>
+        </svg>
+        <div class="hero-marker marker-a">SHOP / 01</div><div class="hero-marker marker-b">COBALT STUDY</div>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Contemporary fashion atelier</p><h1>Made to<br><em>move</em>.</h1>
+        <p class="hero-sub">Sculptural silhouettes, tactile fabrics, and modern Ghanaian energy shaped into pieces that feel unmistakably yours.</p>
+        <a class="hero-link" href="#shop">Shop ready pieces <span>→</span></a>
+      </div>
+      <div class="hero-note">Ready to ship pieces<br><span>01 / 04</span></div>
+    </section>
+
+    <section class="intro-strip"><div class="strip-number">01</div><p>Browse pieces already made, choose your size, place an order, and let the atelier take care of the rest.</p><div class="strip-rule"></div></section>
+
+    <section id="shop" class="shop section-pad">
+      <div class="section-head"><div><p class="eyebrow">The current edit</p><h2>Ready pieces.<br><em>Available now.</em></h2></div><p class="shop-helper">Live stock updates when the owner changes inventory.</p></div>
+      <div class="product-grid" id="productGrid"><div class="loading-card">Loading the collection…</div></div>
+    </section>
+
+    <section id="atelier" class="atelier section-pad">
+      <div class="atelier-visual" aria-hidden="true"><div class="sun"></div><div class="table"></div><div class="thread thread-a"></div><div class="thread thread-b"></div><div class="thread thread-c"></div></div>
+      <div class="atelier-copy"><p class="eyebrow">Inside the room</p><h2>Measured by hand.<br><em>Finished with feeling.</em></h2><p>Every Aurelia piece begins with a fitting conversation. Proportion, movement, and the way you want to be seen become part of the cut.</p>
+        <div class="fact-row"><span>01</span><strong>Private fittings</strong><small>By appointment</small></div><div class="fact-row"><span>02</span><strong>Small-batch pieces</strong><small>Made with intention</small></div><div class="fact-row"><span>03</span><strong>Alterations</strong><small>Refined to the wearer</small></div>
+      </div>
+    </section>
+
+    <section id="journal" class="journal section-pad"><div class="journal-top"><p class="eyebrow">From the journal</p><a class="journal-arrow" href="#shop">Shop the edit <span>↗</span></a></div><div class="journal-title">The details<br><em>do the talking.</em></div>
+      <div class="journal-items"><a href="#atelier" class="journal-item"><span>Tailoring note / 04</span><strong>Why the shoulder changes the entire silhouette</strong><span>↗</span></a><a href="#atelier" class="journal-item"><span>Material note / 08</span><strong>Finding movement in a fabric that holds its shape</strong><span>↗</span></a></div>
+    </section>
+
+    <section class="contact section-pad"><div class="contact-card"><p class="contact-kicker">Need a little help?</p><h2>Talk to<br><em>the atelier.</em></h2><p>Ask about sizing, availability, fittings or delivery.</p><a class="contact-cta" id="whatsappLink" href="#">Chat on WhatsApp <span>↗</span></a></div><div class="contact-side"><span id="storeAddress">Accra / Ghana</span><span>By appointment</span><span id="storePhone">+233 20 000 0000</span></div></section>
+  </main>
+
+  <footer class="site-footer"><span>AURELIA ATELIER</span><span>© 2026</span><span>Online store</span></footer>
+
+  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping bag" aria-hidden="true">
+    <div class="drawer-head"><div><p class="eyebrow">YOUR BAG</p><h2>Selected pieces.</h2></div><button class="close-button" id="closeCart">×</button></div>
+    <div id="cartItems" class="cart-items"></div><div class="cart-total"><span>Subtotal</span><strong id="cartTotal">GHS 0.00</strong></div><button class="drawer-checkout" id="startCheckout">Continue to checkout</button>
+  </aside>
+
+  <div class="modal hidden" id="checkoutModal"><div class="modal-card"><button class="modal-close" data-close="checkoutModal">×</button><p class="eyebrow">CHECKOUT</p><h2>Place your order.</h2><form id="checkoutForm"><input id="customerName" required placeholder="Full name"><input id="customerPhone" required placeholder="Phone / WhatsApp"><input id="customerEmail" type="email" placeholder="Email (optional)"><textarea id="customerAddress" required rows="4" placeholder="Delivery address"></textarea><div class="checkout-summary"><span>Total</span><strong id="checkoutTotal">GHS 0.00</strong></div><p class="checkout-note">Your order will be recorded and the atelier will contact you to confirm payment and delivery.</p><button class="contact-cta full" type="submit">Place order <span>↗</span></button></form><div id="checkoutResult" class="form-result"></div></div></div>
+</body>
+</html>
