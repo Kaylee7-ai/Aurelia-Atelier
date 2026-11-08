@@ -136,3 +136,16 @@ h1{font-family:var(--serif);font-size:clamp(4.2rem,8.5vw,8.9rem);font-weight:400
   color:#E7C9C7;
 }
 
+
+/* Cache-busted final contact palette: override all previous bold-fashion accents here */
+section.contact.section-pad{background:#F5F0EC !important;}
+section.contact.section-pad .contact-card{background:#24201F !important;color:#FFFDFC !important;}
+section.contact.section-pad .contact-kicker{color:#D9B9B5 !important;}
+section.contact.section-pad .contact-card h2 em{color:#E7C9C7 !important;}
+section.contact.section-pad .contact-card>p:not(.contact-kicker){color:rgba(255,253,252,.72) !important;}
+section.contact.section-pad .contact-cta,
+section.contact.section-pad .contact-cta.full{background:#E7C9C7 !important;color:#292322 !important;border-color:#E7C9C7 !important;}
+section.contact.section-pad .contact-cta:hover{background:#F5E8E5 !important;color:#292322 !important;}
+section.contact.section-pad .contact-side{color:#625754 !important;}
+footer.site-footer{background:#24201F !important;color:rgba(255,253,252,.72) !important;}
+footer.site-footer span:last-child{color:#E7C9C7 !important;}
