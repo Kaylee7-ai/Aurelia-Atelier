@@ -91,3 +91,5 @@ h1{font-family:var(--serif);font-size:clamp(4.2rem,8.5vw,8.9rem);font-weight:400
 @media(max-width:650px){.quick-view-layout{grid-template-columns:1fr;gap:18px}.quick-view-image{max-height:280px}.product-modal-card{padding:20px}}
 
 .wordmark img{display:block;max-width:190px;max-height:42px;object-fit:contain}.hero-copy h1{white-space:pre-line}
+
+.cart-quantity{display:flex;align-items:center;gap:10px;margin-top:9px;font-size:11px;color:var(--muted)}.cart-quantity button{width:25px;height:25px;border:1px solid var(--line);border-radius:50%;background:transparent;color:var(--ink);font-size:15px;line-height:1}.cart-quantity button:hover{background:var(--ivory)}
