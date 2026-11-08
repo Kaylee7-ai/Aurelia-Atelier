@@ -16,10 +16,10 @@
   <header class="site-header">
     <a class="wordmark" href="#top">VELCÉRIA</a>
     <nav aria-label="Primary navigation">
-      <a href="#shop">Shop</a><a href="#atelier">Atelier</a><a href="#journal">Journal</a>
+      <a href="#shop">New in</a><a href="#shop">Women</a><a href="#shop">Men</a><a href="#shop">Kids</a><a href="#shop">Accessories</a>
     </nav>
     <div class="header-actions">
-      <button class="bag-button" id="openCart" aria-label="Open shopping bag">Bag <span id="cartCount">0</span></button>
+      <a class="header-cta" href="#shop">Explore collection</a><button class="bag-button" id="openCart" aria-label="Open shopping bag">Bag <span id="cartCount">0</span></button>
     </div>
   </header>
 
@@ -48,7 +48,10 @@
     <section class="intro-strip"><div class="strip-number">01</div><p>Browse pieces already made, choose your size, place an order, and let the atelier take care of the rest.</p><div class="strip-rule"></div></section>
 
     <section id="shop" class="shop section-pad">
-      <div class="section-head"><div><p class="eyebrow">The current edit</p><h2>Ready pieces.<br><em>Available now.</em></h2></div><p class="shop-helper">Live stock updates when the owner changes inventory.</p></div>
+      <div class="section-head"><div><p class="eyebrow">The VELCÉRIA edit</p><h2>Find your<br><em>next favourite.</em></h2></div><p class="shop-helper">Thoughtfully selected fashion across clothing, shoes, bags, jewellery and everyday finishing touches.</p></div>
+      <div class="collection-tools"><label class="search-field"><span class="sr-only">Search products</span><input id="productSearch" type="search" placeholder="Search the collection…" autocomplete="off"><span aria-hidden="true">⌕</span></label><label class="sort-field"><span>Sort by</span><select id="productSort"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A–Z</option></select></label></div>
+      <div class="category-chips" id="categoryFilters" aria-label="Filter by department"><button class="category-chip active" data-category="All" aria-pressed="true">All pieces</button><button class="category-chip" data-category="Women">Women</button><button class="category-chip" data-category="Men">Men</button><button class="category-chip" data-category="Kids">Kids</button><button class="category-chip" data-category="Shoes">Shoes</button><button class="category-chip" data-category="Accessories">Accessories</button><button class="category-chip" data-category="Jewellery">Jewellery</button></div>
+      <p class="results-count" id="resultsCount" aria-live="polite">Loading collection…</p>
       <div class="product-grid" id="productGrid"><div class="loading-card">Loading the collection…</div></div>
     </section>
 
@@ -74,6 +77,6 @@
     <div id="cartItems" class="cart-items"></div><div class="cart-total"><span>Subtotal</span><strong id="cartTotal">GHS 0.00</strong></div><button class="drawer-checkout" id="startCheckout">Continue to checkout</button>
   </aside>
 
-  <div class="modal hidden" id="checkoutModal"><div class="modal-card"><button class="modal-close" data-close="checkoutModal">×</button><p class="eyebrow">CHECKOUT</p><h2>Place your order.</h2><form id="checkoutForm"><input id="customerName" required placeholder="Full name"><input id="customerPhone" required placeholder="Phone / WhatsApp"><input id="customerEmail" type="email" placeholder="Email (optional)"><textarea id="customerAddress" required rows="4" placeholder="Delivery address"></textarea><div class="checkout-summary"><span>Total</span><strong id="checkoutTotal">GHS 0.00</strong></div><p class="checkout-note">Your order will be recorded and the atelier will contact you to confirm payment and delivery.</p><button class="contact-cta full" type="submit">Place order <span>↗</span></button></form><div id="checkoutResult" class="form-result"></div></div></div>
+  <div class="modal hidden" id="checkoutModal"><div class="modal-card"><button class="modal-close" data-close="checkoutModal">×</button><p class="eyebrow">CHECKOUT</p><h2>Place your order.</h2><form id="checkoutForm"><input id="customerName" required autocomplete="name" placeholder="Full name"><input id="customerPhone" required type="tel" autocomplete="tel" placeholder="Phone / WhatsApp"><input id="customerEmail" type="email" autocomplete="email" placeholder="Email (optional)"><div class="checkout-location"><input id="customerRegion" required placeholder="Region"><input id="customerCity" required placeholder="City / town"></div><textarea id="customerAddress" required rows="3" autocomplete="street-address" placeholder="Exact delivery address, house number and landmarks"></textarea><div class="payment-choice"><span>Payment method</span><strong>Cash on delivery</strong><small>Pay when your order is delivered. The boutique will contact you to confirm your order.</small></div><div class="checkout-summary"><span>Total</span><strong id="checkoutTotal">GHS 0.00</strong></div><p class="checkout-note">Your order will be recorded. The boutique will contact you to confirm delivery arrangements. Payment is currently cash on delivery.</p><button class="contact-cta full" type="submit">Place order <span>↗</span></button></form><div id="checkoutResult" class="form-result"></div></div></div>
 </body>
 </html>
