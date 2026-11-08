@@ -8,9 +8,10 @@ let cart = [];
 let activeCategory = "All";
 let searchTerm = "";
 let sortMode = "featured";
+let storeCurrency = 'GHS';
 
 const el = id => document.getElementById(id);
-const money = v => new Intl.NumberFormat('en-GH',{style:'currency',currency:'GHS',minimumFractionDigits:2}).format(Number(v||0));
+const money = v => new Intl.NumberFormat('en-GH',{style:'currency',currency:storeCurrency,minimumFractionDigits:2}).format(Number(v||0));
 
 function apiHeaders(token){
   const h = {'apikey': KEY, 'Content-Type':'application/json'};
@@ -74,7 +75,13 @@ async function loadStore(){
     renderProducts();
     const settings=settingsRows?.[0]||{};
     const brand=settings.business_name||'VELCÉRIA';
-    document.title=brand+' | Modern Fashion, Curated';
+    storeCurrency=settings.currency||'GHS';
+    document.documentElement.style.setProperty('--blue',settings.brand_primary_color||'#2457D6');
+    document.documentElement.style.setProperty('--rose',settings.brand_accent_color||'#E1A0A6');
+    document.title=brand+' | '+(settings.tagline||'Modern Fashion, Curated');
+    const heroEyebrow=document.querySelector('.hero-copy .eyebrow');if(heroEyebrow&&settings.tagline)heroEyebrow.textContent=settings.tagline;
+    const heroHeading=document.querySelector('.hero-copy h1');if(heroHeading&&settings.hero_title)heroHeading.textContent=settings.hero_title;
+    const heroSub=document.querySelector('.hero-sub');if(heroSub&&settings.hero_subtitle)heroSub.textContent=settings.hero_subtitle;
     document.querySelectorAll('.wordmark').forEach(n=>{n.textContent=brand;});
     const footerBrand=el('footerBrand'); if(footerBrand) footerBrand.textContent=brand;
     const favicon=el('storeFavicon'); if(favicon&&settings.logo_url) favicon.href=settings.logo_url;
@@ -162,8 +169,9 @@ el('checkoutForm').onsubmit=async e=>{
   e.preventDefault(); const button=e.target.querySelector('button[type=submit]'); button.disabled=true; button.textContent='Placing order…'; setNotice('checkoutResult','');
   try{
     const payload=cart.map(x=>({variant_id:x.variantId,quantity:x.qty}));
-    const data=await db('/rpc/place_order',{method:'POST',body:JSON.stringify({p_customer_name:el('customerName').value.trim(),p_customer_email:el('customerEmail').value.trim(),p_customer_phone:el('customerPhone').value.trim(),p_delivery_address:[el('customerRegion').value.trim(),el('customerCity').value.trim(),el('customerAddress').value.trim()].join(', '),p_items:payload})});
-    el('checkoutResult').innerHTML=`Order <strong>#${escapeHtml(data.order_number)}</strong> received. The boutique will contact you on the number you provided to confirm delivery and cash-on-delivery arrangements.`; cart=[]; syncCart(); loadStore();
+    const data=await db('/rpc/place_order_v2',{method:'POST',body:JSON.stringify({p_customer_name:el('customerName').value.trim(),p_customer_email:el('customerEmail').value.trim(),p_customer_phone:el('customerPhone').value.trim(),p_region:el('customerRegion').value.trim(),p_city:el('customerCity').value.trim(),p_delivery_address:el('customerAddress').value.trim(),p_items:payload})});
+    const deliveryMessage=data.delivery_status==='confirmed'?'Delivery zone matched.':'Delivery needs manual confirmation by the boutique.';
+    el('checkoutResult').innerHTML=`Order <strong>#${escapeHtml(data.order_number)}</strong> received.<br>Items: ${money(data.subtotal)} · Delivery: ${money(data.delivery_fee)} · Total: <strong>${money(data.total)}</strong><br>${escapeHtml(deliveryMessage)} The boutique will contact you to confirm your order and cash-on-delivery arrangements.`; cart=[]; syncCart(); loadStore();
   }catch(err){ setNotice('checkoutResult',err.message||'We could not place this order.'); }
   button.disabled=false;button.innerHTML='Place order <span>↗</span>';
 };
