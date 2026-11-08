@@ -69,12 +69,17 @@ async function loadStore(){
     (vs||[]).forEach(v=>{if(!variantsByProduct.has(v.product_id))variantsByProduct.set(v.product_id,[]);variantsByProduct.get(v.product_id).push(v)});
     (is||[]).forEach(i=>{if(!imagesByProduct.has(i.product_id))imagesByProduct.set(i.product_id,[]);imagesByProduct.get(i.product_id).push(i)});
     renderProducts();
-    const settings=settingsRows?.[0];
+    const settings=settingsRows?.[0]||{};
+    const brand=settings.business_name||'VELCÉRIA';
+    document.title=brand+' | Modern Fashion, Curated';
+    document.querySelectorAll('.wordmark').forEach(n=>{n.textContent=brand;});
+    const footerBrand=el('footerBrand'); if(footerBrand) footerBrand.textContent=brand;
+    const favicon=el('storeFavicon'); if(favicon&&settings.logo_url) favicon.href=settings.logo_url;
     if(settings){
       el('storeAddress').textContent=settings.address||'Accra / Ghana';
       el('storePhone').textContent=settings.phone||'';
       const wa=(settings.whatsapp_number||settings.phone||'').replace(/[^0-9]/g,'');
-      el('whatsappLink').href=wa?`https://wa.me/${wa}?text=${encodeURIComponent('Hello Aurelia Atelier, I would like some help with a piece.')}`:'#';
+      el('whatsappLink').href=wa?`https://wa.me/${wa}?text=${encodeURIComponent('Hello VELCÉRIA, I would like some help with a product.')}`:'#';
     }
   }catch(err){
     console.error(err);
