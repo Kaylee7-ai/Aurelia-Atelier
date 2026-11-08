@@ -85,6 +85,7 @@ async function loadStore(){
     document.querySelectorAll('.wordmark').forEach(n=>{n.textContent=brand;if(settings.logo_url){const logo=document.createElement('img');logo.src=settings.logo_url;logo.alt=brand;n.textContent='';n.appendChild(logo);}});
     const footerBrand=el('footerBrand'); if(footerBrand) footerBrand.textContent=brand;
     const favicon=el('storeFavicon'); if(favicon&&settings.logo_url) favicon.href=settings.logo_url;
+    syncCart();
     if(settings){
       el('storeAddress').textContent=settings.address||'Accra / Ghana';
       el('storePhone').textContent=settings.phone||'';
@@ -147,7 +148,7 @@ el('quickViewAdd').onclick=()=>{
   const p=products.find(x=>x.id===selectedProductId), variant=(variantsByProduct.get(selectedProductId)||[]).find(v=>v.id===el('quickViewVariant').value);
   if(!p||!variant||Number(variant.stock_qty)<=0)return;
   const existing=cart.find(x=>x.variantId===variant.id);
-  if(existing)existing.qty+=1;
+  if(existing){if(existing.qty>=Number(variant.stock_qty)){alert('That is all the available stock for this option.');return;}existing.qty+=1;}
   else cart.push({productId:p.id,variantId:variant.id,name:p.name,size:variant.size,color:variant.color,price:Number(p.price),qty:1});
   syncCart();el('productModal').classList.add('hidden');openCartDrawer();
 };
