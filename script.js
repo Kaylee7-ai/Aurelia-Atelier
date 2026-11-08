@@ -121,10 +121,30 @@ function setupCollectionControls(){
   }));
 }
 
+let selectedProductId=null;
 function openProduct(id){
-  const p=products.find(x=>x.id===id), vs=(variantsByProduct.get(id)||[]).filter(v=>v.stock_qty>0); if(!p||!vs.length)return;
-  const size=vs.find(v=>v.size==='M')||vs[0]; cart.push({productId:p.id,variantId:size.id,name:p.name,size:size.size,color:size.color,price:Number(p.price),qty:1}); syncCart(); openCartDrawer();
+  const p=products.find(x=>x.id===id), vs=(variantsByProduct.get(id)||[]).filter(v=>Number(v.stock_qty)>0);
+  if(!p||!vs.length)return;
+  selectedProductId=id;
+  el('quickViewCategory').textContent=p.category||'CURATED PIECE';
+  el('quickViewName').textContent=p.name;
+  el('quickViewDescription').textContent=p.description||'A considered addition to your wardrobe.';
+  el('quickViewPrice').textContent=money(p.price);
+  el('quickViewImage').src=productImage(p);
+  el('quickViewImage').alt=p.name;
+  el('quickViewVariant').innerHTML=vs.map(v=>`<option value="${escapeHtml(v.id)}">${escapeHtml([v.size,v.color].filter(Boolean).join(' · ')||'One size')} — ${Number(v.stock_qty)} available</option>`).join('');
+  el('quickViewStock').textContent=vs.length===1?'Limited availability':vs.length+' options available';
+  el('productModal').classList.remove('hidden');
 }
+el('quickViewAdd').onclick=()=>{
+  const p=products.find(x=>x.id===selectedProductId), variant=(variantsByProduct.get(selectedProductId)||[]).find(v=>v.id===el('quickViewVariant').value);
+  if(!p||!variant||Number(variant.stock_qty)<=0)return;
+  const existing=cart.find(x=>x.variantId===variant.id);
+  if(existing)existing.qty+=1;
+  else cart.push({productId:p.id,variantId:variant.id,name:p.name,size:variant.size,color:variant.color,price:Number(p.price),qty:1});
+  syncCart();el('productModal').classList.add('hidden');openCartDrawer();
+};
+
 function syncCart(){
   const total=cart.reduce((a,b)=>a+b.price*b.qty,0); el('cartCount').textContent=cart.reduce((a,b)=>a+b.qty,0); el('cartTotal').textContent=money(total); el('checkoutTotal').textContent=money(total);
   el('cartItems').innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-item"><div><strong>${escapeHtml(x.name)}</strong><span>${escapeHtml(x.size||'One size')} · Qty ${x.qty}</span></div><b>${money(x.price*x.qty)}</b><button data-remove="${i}" aria-label="Remove ${escapeHtml(x.name)}">×</button></div>`).join(''):'<div class="empty-bag">Your bag is empty.<br><a href="#shop">Browse ready pieces →</a></div>';
