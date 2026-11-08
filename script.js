@@ -154,8 +154,9 @@ el('quickViewAdd').onclick=()=>{
 
 function syncCart(){
   const total=cart.reduce((a,b)=>a+b.price*b.qty,0); el('cartCount').textContent=cart.reduce((a,b)=>a+b.qty,0); el('cartTotal').textContent=money(total); el('checkoutTotal').textContent=money(total);
-  el('cartItems').innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-item"><div><strong>${escapeHtml(x.name)}</strong><span>${escapeHtml(x.size||'One size')} · Qty ${x.qty}</span></div><b>${money(x.price*x.qty)}</b><button data-remove="${i}" aria-label="Remove ${escapeHtml(x.name)}">×</button></div>`).join(''):'<div class="empty-bag">Your bag is empty.<br><a href="#shop">Browse ready pieces →</a></div>';
+  el('cartItems').innerHTML=cart.length?cart.map((x,i)=>`<div class="cart-item"><div><strong>${escapeHtml(x.name)}</strong><span>${escapeHtml([x.size,x.color].filter(Boolean).join(' · ')||'One size')}</span><div class="cart-quantity"><button type="button" data-change="${i}" data-delta="-1" aria-label="Decrease quantity">−</button><span>Qty ${x.qty}</span><button type="button" data-change="${i}" data-delta="1" aria-label="Increase quantity">+</button></div></div><b>${money(x.price*x.qty)}</b><button data-remove="${i}" aria-label="Remove ${escapeHtml(x.name)}">×</button></div>`).join(''):'<div class="empty-bag">Your bag is empty.<br><a href="#shop">Browse ready pieces →</a></div>';
   document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{cart.splice(Number(b.dataset.remove),1);syncCart()});
+  document.querySelectorAll('[data-change]').forEach(b=>b.onclick=()=>{const item=cart[Number(b.dataset.change)];if(!item)return;const next=item.qty+Number(b.dataset.delta);const variant=(variantsByProduct.get(item.productId)||[]).find(v=>v.id===item.variantId);if(next<1){cart.splice(Number(b.dataset.change),1);}else if(next<=Number(variant?.stock_qty||0)){item.qty=next;}else{alert('That is all the available stock for this option.');return;}syncCart()});
 }
 function openCartDrawer(){el('drawerBackdrop').classList.remove('hidden');el('cartDrawer').classList.add('open');el('cartDrawer').setAttribute('aria-hidden','false')}
 function closeCart(){el('drawerBackdrop').classList.add('hidden');el('cartDrawer').classList.remove('open');el('cartDrawer').setAttribute('aria-hidden','true')}
@@ -164,6 +165,8 @@ setupCollectionControls();
 el('openCart').onclick=openCartDrawer;el('closeCart').onclick=closeCart;el('drawerBackdrop').onclick=closeCart;syncCart();
 el('startCheckout').onclick=()=>{if(!cart.length){alert('Your bag is empty.');return}closeCart();setNotice('checkoutResult','');el('checkoutModal').classList.remove('hidden')};
 document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>el(b.dataset.close).classList.add('hidden'));
+['productModal','checkoutModal'].forEach(id=>{const modal=el(id);if(modal)modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.add('hidden')});});
+window.addEventListener('keydown',e=>{if(e.key==='Escape'){['productModal','checkoutModal'].forEach(id=>el(id)?.classList.add('hidden'));closeCart();}});
 
 el('checkoutForm').onsubmit=async e=>{
   e.preventDefault(); const button=e.target.querySelector('button[type=submit]'); button.disabled=true; button.textContent='Placing order…'; setNotice('checkoutResult','');
