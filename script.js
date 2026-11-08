@@ -82,7 +82,7 @@ async function loadStore(){
     const heroEyebrow=document.querySelector('.hero-copy .eyebrow');if(heroEyebrow&&settings.tagline)heroEyebrow.textContent=settings.tagline;
     const heroHeading=document.querySelector('.hero-copy h1');if(heroHeading&&settings.hero_title)heroHeading.textContent=settings.hero_title;
     const heroSub=document.querySelector('.hero-sub');if(heroSub&&settings.hero_subtitle)heroSub.textContent=settings.hero_subtitle;
-    document.querySelectorAll('.wordmark').forEach(n=>{n.textContent=brand;});
+    document.querySelectorAll('.wordmark').forEach(n=>{n.textContent=brand;if(settings.logo_url){const logo=document.createElement('img');logo.src=settings.logo_url;logo.alt=brand;n.textContent='';n.appendChild(logo);}});
     const footerBrand=el('footerBrand'); if(footerBrand) footerBrand.textContent=brand;
     const favicon=el('storeFavicon'); if(favicon&&settings.logo_url) favicon.href=settings.logo_url;
     if(settings){
