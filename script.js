@@ -91,6 +91,8 @@ async function loadStore(){
       el('storePhone').textContent=settings.phone||'';
       const wa=(settings.whatsapp_number||settings.phone||'').replace(/[^0-9]/g,'');
       el('whatsappLink').href=wa?`https://wa.me/${wa}?text=${encodeURIComponent('Hello VELCÉRIA, I would like some help with a product.')}`:'#';
+      el('whatsappLink').hidden=!wa;
+      el('storePhone').hidden=!(settings.phone||'').trim();
     }
   }catch(err){
     console.error(err);
