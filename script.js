@@ -5,6 +5,9 @@ let products = [];
 let variantsByProduct = new Map();
 let imagesByProduct = new Map();
 let cart = [];
+let activeCategory = "All";
+let searchTerm = "";
+let sortMode = "featured";
 
 const el = id => document.getElementById(id);
 const money = v => new Intl.NumberFormat('en-GH',{style:'currency',currency:'GHS',minimumFractionDigits:2}).format(Number(v||0));
@@ -87,15 +90,35 @@ async function loadStore(){
   }
 }
 
+function categoryMatches(product, category){
+  if(category==="All") return true;
+  const raw=String(product.category||"").toLowerCase();
+  const aliases={Women:["women","woman","womens","female","ladies"],Men:["men","man","mens","male"],Kids:["kids","children","childrens","boys","girls"],Shoes:["shoe","shoes","sneaker","footwear","heels","sandals"],Accessories:["accessor","bag","handbag","watch","belt","sunglass","sunglasses"],Jewellery:["jewellery","jewelry","necklace","bracelet","earring","ring"]};
+  return (aliases[category]||[category.toLowerCase()]).some(term=>raw.includes(term));
+}
 function renderProducts(){
   const grid=el('productGrid');
-  if(!products.length){grid.innerHTML='<div class="loading-card">No pieces are published yet.</div>';return;}
-  grid.innerHTML=products.map(p=>{
-    const vs=variantsByProduct.get(p.id)||[]; const stock=vs.reduce((a,b)=>a+b.stock_qty,0); const sizes=[...new Set(vs.map(v=>v.size).filter(Boolean))];
-    return `<article class="product-card"><button class="product-image" data-product="${p.id}"><img src="${productImage(p)}" alt="${escapeHtml(p.name)}" loading="lazy"><span>${stock>0?`${stock} in stock`:'Sold out'}</span></button><div class="product-copy"><div><p class="product-category">${escapeHtml(p.category||'Ready piece')}</p><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.description||'')}</p></div><strong>${money(p.price)}</strong></div><div class="product-foot"><span>${sizes.length?`Sizes ${sizes.join(', ')}`:'Limited stock'}</span><button class="add-link" data-add="${p.id}" ${stock<=0?'disabled':''}>Add to bag ↗</button></div></article>`;
+  const filtered=products.filter(p=>categoryMatches(p,activeCategory)&&[p.name,p.category,p.description].some(v=>String(v||"").toLowerCase().includes(searchTerm)));
+  if(sortMode==="price-low") filtered.sort((a,b)=>Number(a.price)-Number(b.price));
+  if(sortMode==="price-high") filtered.sort((a,b)=>Number(b.price)-Number(a.price));
+  if(sortMode==="name") filtered.sort((a,b)=>String(a.name).localeCompare(String(b.name)));
+  el('resultsCount').textContent=filtered.length+" "+(filtered.length===1?"piece":"pieces")+" shown";
+  if(!filtered.length){grid.innerHTML='<div class="loading-card">No pieces match that search. Try another term or choose All pieces.</div>';return;}
+  grid.innerHTML=filtered.map(p=>{
+    const vs=variantsByProduct.get(p.id)||[]; const stock=vs.reduce((a,b)=>a+Number(b.stock_qty||0),0); const sizes=[...new Set(vs.map(v=>v.size).filter(Boolean))];
+    return `<article class="product-card"><button class="product-image" data-product="${escapeHtml(p.id)}" aria-label="View ${escapeHtml(p.name)}"><img src="${escapeHtml(productImage(p))}" alt="${escapeHtml(p.name)}" loading="lazy"><span>${stock>0?(stock<=3?'Almost gone': 'Available now'):'Sold out'}</span></button><div class="product-copy"><div><p class="product-category">${escapeHtml(p.category||'Curated piece')}</p><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.description||'')}</p></div><strong>${money(p.price)}</strong></div><div class="product-foot"><span>${sizes.length?'Sizes '+sizes.map(escapeHtml).join(', '):'Limited stock'}</span><button class="add-link" data-add="${escapeHtml(p.id)}" ${stock<=0?'disabled':''}>${stock<=0?'Unavailable':'Choose options ↗'}</button></div></article>`;
   }).join('');
   document.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>openProduct(b.dataset.add));
   document.querySelectorAll('[data-product]').forEach(b=>b.onclick=()=>openProduct(b.dataset.product));
+}
+function setupCollectionControls(){
+  el('productSearch').addEventListener('input',e=>{searchTerm=e.target.value.trim().toLowerCase();renderProducts();});
+  el('productSort').addEventListener('change',e=>{sortMode=e.target.value;renderProducts();});
+  document.querySelectorAll('[data-category]').forEach(b=>b.addEventListener('click',()=>{
+    activeCategory=b.dataset.category;
+    document.querySelectorAll('[data-category]').forEach(x=>{const active=x===b;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active));});
+    renderProducts();
+  }));
 }
 
 function openProduct(id){
@@ -110,6 +133,7 @@ function syncCart(){
 function openCartDrawer(){el('drawerBackdrop').classList.remove('hidden');el('cartDrawer').classList.add('open');el('cartDrawer').setAttribute('aria-hidden','false')}
 function closeCart(){el('drawerBackdrop').classList.add('hidden');el('cartDrawer').classList.remove('open');el('cartDrawer').setAttribute('aria-hidden','true')}
 
+setupCollectionControls();
 el('openCart').onclick=openCartDrawer;el('closeCart').onclick=closeCart;el('drawerBackdrop').onclick=closeCart;syncCart();
 el('startCheckout').onclick=()=>{if(!cart.length){alert('Your bag is empty.');return}closeCart();setNotice('checkoutResult','');el('checkoutModal').classList.remove('hidden')};
 document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>el(b.dataset.close).classList.add('hidden'));
@@ -118,8 +142,8 @@ el('checkoutForm').onsubmit=async e=>{
   e.preventDefault(); const button=e.target.querySelector('button[type=submit]'); button.disabled=true; button.textContent='Placing order…'; setNotice('checkoutResult','');
   try{
     const payload=cart.map(x=>({variant_id:x.variantId,quantity:x.qty}));
-    const data=await db('/rpc/place_order',{method:'POST',body:JSON.stringify({p_customer_name:el('customerName').value.trim(),p_customer_email:el('customerEmail').value.trim(),p_customer_phone:el('customerPhone').value.trim(),p_delivery_address:el('customerAddress').value.trim(),p_items:payload})});
-    el('checkoutResult').innerHTML=`Order <strong>#${escapeHtml(data.order_number)}</strong> received. The atelier will contact you on the number you provided.`; cart=[]; syncCart(); loadStore();
+    const data=await db('/rpc/place_order',{method:'POST',body:JSON.stringify({p_customer_name:el('customerName').value.trim(),p_customer_email:el('customerEmail').value.trim(),p_customer_phone:el('customerPhone').value.trim(),p_delivery_address:[el('customerRegion').value.trim(),el('customerCity').value.trim(),el('customerAddress').value.trim()].join(', '),p_items:payload})});
+    el('checkoutResult').innerHTML=`Order <strong>#${escapeHtml(data.order_number)}</strong> received. The boutique will contact you on the number you provided to confirm delivery and cash-on-delivery arrangements.`; cart=[]; syncCart(); loadStore();
   }catch(err){ setNotice('checkoutResult',err.message||'We could not place this order.'); }
   button.disabled=false;button.innerHTML='Place order <span>↗</span>';
 };
