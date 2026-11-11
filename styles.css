@@ -226,3 +226,7 @@ body{background:var(--paper);color:var(--ink)}
 @media(max-width:950px){.hero{grid-template-columns:1fr}.hero-stage{min-height:620px}}
 @media(max-width:640px){.hero-stage{min-height:510px;border-radius:0}.scene-caption{left:17px;right:17px;bottom:18px;font-size:7px}.hero-copy h1{font-size:clamp(4.1rem,17vw,6.2rem)}}
 @media(prefers-reduced-motion:reduce){#velceria3d{animation:none}}
+
+/* WebGL fallback image sits behind the transparent 3D canvas until the scene initializes */
+.hero-garment{display:block;opacity:1;z-index:1}
+#velceria3d{z-index:2}
