@@ -16,24 +16,38 @@
 
   const PRODUCTS = [
     { id:"p01", name:"The Aurelia Evening Dress", category:"Dresses", price:680, tag:"Bestseller", description:"A refined evening silhouette with an elegant drape and timeless finish." },
-    { id:"p02", name:"The Celeste Satin Midi", category:"Dresses", price:520, tag:"New", description:"A fluid satin-inspired midi for celebrations and special evenings." },
-    { id:"p03", name:"The Solene Occasion Gown", category:"Dresses", price:890, tag:"Signature", description:"A statement occasion gown with graceful lines and a polished finish." },
-    { id:"p04", name:"The Amara Tailored Dress", category:"Dresses", price:460, tag:"Essential", description:"A versatile tailored dress designed for day-to-evening styling." },
-    { id:"p05", name:"The Élise Classic Heel", category:"Shoes", price:390, tag:"Bestseller", description:"A classic heel designed to complement occasion and everyday looks." },
-    { id:"p06", name:"The Sienna Evening Heel", category:"Shoes", price:440, tag:"New", description:"An elegant evening shoe with a clean, modern profile." },
-    { id:"p07", name:"The Muse Minimal Sandal", category:"Shoes", price:320, tag:"Essential", description:"A minimal sandal that pairs effortlessly with warm-weather outfits." },
-    { id:"p08", name:"The Noelle Structured Bag", category:"Bags", price:560, tag:"Bestseller", description:"A structured handbag with a timeless shape and considered details." },
-    { id:"p09", name:"The Camille Shoulder Bag", category:"Bags", price:480, tag:"New", description:"A polished shoulder bag for everyday elegance." },
-    { id:"p10", name:"The Siena Mini Bag", category:"Bags", price:350, tag:"Essential", description:"A compact accessory for dinners, events and weekends." },
-    { id:"p11", name:"The Lumière Pendant", category:"Jewellery", price:210, tag:"Signature", description:"A delicate pendant to add a subtle finishing touch." },
-    { id:"p12", name:"The Sol Pearl Earrings", category:"Jewellery", price:185, tag:"Bestseller", description:"Pearl-inspired earrings with an understated, graceful look." },
-    { id:"p13", name:"The Étoile Cuff", category:"Jewellery", price:240, tag:"New", description:"A sculptural cuff designed to stand beautifully on its own." },
-    { id:"p14", name:"The Maison Silk Scarf", category:"Accessories", price:160, tag:"Essential", description:"A versatile scarf to style around the neck, hair or handbag." },
-    { id:"p15", name:"The Élégance Belt", category:"Accessories", price:190, tag:"New", description:"A refined belt that brings definition to dresses and separates." },
-    { id:"p16", name:"The Signature Sunglasses", category:"Accessories", price:260, tag:"Signature", description:"A modern finishing piece for a confident everyday look." }
+    { id:"p02", name:"The Celeste Satin Midi", category:"Dresses", price:520, tag:"New", description:"A fluid midi for celebrations and special evenings." },
+    { id:"p03", name:"The Solene Occasion Gown", category:"Dresses", price:890, tag:"Signature", description:"A statement occasion gown with graceful lines." },
+    { id:"p04", name:"The Amara Tailored Dress", category:"Dresses", price:460, tag:"Essential", description:"A versatile tailored dress for day-to-evening styling." },
+    { id:"p05", name:"The Nia Sculpted Top", category:"Tops", price:220, tag:"New", description:"A polished wardrobe top with a clean, modern silhouette." },
+    { id:"p06", name:"The Elara Draped Blouse", category:"Tops", price:260, tag:"Bestseller", description:"A softly draped blouse for workdays and occasions." },
+    { id:"p07", name:"The Sloane Tailored Trouser", category:"Trousers", price:340, tag:"Essential", description:"A smart tailored trouser designed for versatile styling." },
+    { id:"p08", name:"The Amari Wide-Leg Trouser", category:"Trousers", price:380, tag:"New", description:"A fluid wide-leg silhouette with an elegant finish." },
+    { id:"p09", name:"The Sol Co-ord Set", category:"Sets and Co-ords", price:590, tag:"Signature", description:"A coordinated two-piece look for effortless dressing." },
+    { id:"p10", name:"The Mira Skirt", category:"Skirts", price:310, tag:"New", description:"A graceful skirt that pairs with statement or minimal tops." },
+    { id:"p11", name:"The Elise Classic Heel", category:"Shoes", price:390, tag:"Bestseller", description:"A classic heel for occasion and everyday looks." },
+    { id:"p12", name:"The Sienna Evening Heel", category:"Shoes", price:440, tag:"New", description:"An elegant evening shoe with a clean profile." },
+    { id:"p13", name:"The Muse Minimal Sandal", category:"Shoes", price:320, tag:"Essential", description:"A minimal sandal for warm-weather outfits." },
+    { id:"p14", name:"The Noelle Structured Bag", category:"Bags", price:560, tag:"Bestseller", description:"A structured handbag with a timeless shape." },
+    { id:"p15", name:"The Camille Shoulder Bag", category:"Bags", price:480, tag:"New", description:"A polished shoulder bag for everyday elegance." },
+    { id:"p16", name:"The Siena Mini Bag", category:"Bags", price:350, tag:"Essential", description:"A compact accessory for dinners and weekends." },
+    { id:"p17", name:"The Weekend Baseball Cap", category:"Caps", price:145, tag:"New", description:"A relaxed cap to finish casual looks." },
+    { id:"p18", name:"The Elegance Leather Belt", category:"Belts", price:190, tag:"Essential", description:"A refined belt that brings definition to outfits." },
+    { id:"p19", name:"The Champagne Occasion Fascinator", category:"Fascinators", price:295, tag:"Signature", description:"A statement fascinator for weddings and special events." },
+    { id:"p20", name:"The Pearl Detail Hairband", category:"Hair Accessories", price:125, tag:"Bestseller", description:"A graceful hairband with delicate pearl-inspired detail." },
+    { id:"p21", name:"The Lumiere Pendant", category:"Jewellery", price:210, tag:"Signature", description:"A delicate pendant for a subtle finishing touch." },
+    { id:"p22", name:"The Sol Pearl Earrings", category:"Jewellery", price:185, tag:"Bestseller", description:"Pearl-inspired earrings with an understated look." },
+    { id:"p23", name:"The Etoile Cuff", category:"Jewellery", price:240, tag:"New", description:"A sculptural cuff designed to stand beautifully alone." },
+    { id:"p24", name:"The Maison Silk Scarf", category:"Accessories", price:160, tag:"Essential", description:"A versatile scarf for the neck, hair or handbag." },
+    { id:"p25", name:"The Signature Sunglasses", category:"Accessories", price:260, tag:"Signature", description:"A modern finishing piece for confident everyday styling." },
+    { id:"p26", name:"The Little Star Occasion Dress", category:"Children Clothing", price:280, tag:"New", description:"A special-occasion outfit for little celebrations." },
+    { id:"p27", name:"The Junior Smart Set", category:"Children Clothing", price:320, tag:"Bestseller", description:"A smart coordinated outfit for family occasions." },
+    { id:"p28", name:"The Mini Everyday Sneakers", category:"Children Shoes", price:210, tag:"Essential", description:"An everyday sneaker style for children." },
+    { id:"p29", name:"The Little Occasion Shoe", category:"Children Shoes", price:185, tag:"New", description:"A polished shoe style for children's special outfits." },
+    { id:"p30", name:"The Mini Explorer Backpack", category:"Children Accessories", price:195, tag:"New", description:"A playful everyday bag for little adventures." }
   ];
 
-  const CATEGORIES = ["All", "Dresses", "Shoes", "Bags", "Jewellery", "Accessories"];
+  const CATEGORIES = ["All", "Dresses", "Tops", "Trousers", "Sets and Co-ords", "Skirts", "Shoes", "Bags", "Caps", "Belts", "Fascinators", "Hair Accessories", "Jewellery", "Accessories", "Children Clothing", "Children Shoes", "Children Accessories"];
   const KEYS = { cart:"vecleria_cart_v1", saved:"vecleria_saved_v1", promo:"vecleria_promo_v1" };
   const page = document.body.dataset.page || "index";
   const $ = (selector, root=document) => root.querySelector(selector);
