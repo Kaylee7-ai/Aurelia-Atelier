@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customise | VECLÉRIA</title>
+  <meta name="description" content="Design a bespoke VECLÉRIA piece: choose fabric, colour, fit, neckline and length, then send your request.">
+  <meta name="theme-color" content="#0f2e22">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="customise">
+  <a class="skip" href="#main">Skip to content</a>
+  <div id="siteHeader"></div>
+  <main id="main">
+    <section class="page-head"><div class="container"><span class="eyebrow">Bespoke atelier</span><h1>Design your own piece</h1><p class="lead" style="margin-inline:auto">Choose every detail. We confirm the design, price and timeline with you before we begin.</p></div></section>
+    <div class="container cust-layout">
+      <form class="box" onsubmit="return false" aria-label="Custom piece options">
+        <div id="custGroups"></div>
+        <fieldset class="group"><legend>Measurements (cm, optional)</legend>
+          <div class="two"><div class="field"><label for="mBust">Bust</label><input class="input" id="mBust" inputmode="decimal"></div><div class="field"><label for="mWaist">Waist</label><input class="input" id="mWaist" inputmode="decimal"></div></div>
+          <div class="two"><div class="field"><label for="mHips">Hips</label><input class="input" id="mHips" inputmode="decimal"></div><div class="field"><label for="mHeight">Height</label><input class="input" id="mHeight" inputmode="decimal"></div></div>
+        </fieldset>
+        <div class="two"><div class="field"><label for="cName">Your name</label><input class="input" id="cName" autocomplete="name"></div><div class="field"><label for="fDate">Needed by</label><input class="input" id="fDate" type="date"></div></div>
+        <div class="field"><label for="cNotes">Notes and inspiration</label><textarea class="input" id="cNotes" placeholder="Describe the look you imagine"></textarea></div>
+      </form>
+      <aside class="box sticky" aria-label="Your custom piece">
+        <h3>Your piece</h3><ul class="summary" id="custSummary"></ul>
+        <a class="btn btn-wa btn-block" id="custSend" href="#" target="_blank" rel="noopener">Send request on WhatsApp ↗</a>
+        <p style="font-size:.8rem;margin:.9rem 0 0;text-align:center">Send reference photos in the chat. Pricing and timeline are confirmed before you pay.</p>
+      </aside>
+    </div>
+  </main>
+  <div id="siteFooter"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
