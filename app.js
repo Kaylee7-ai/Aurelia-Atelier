@@ -46,7 +46,7 @@
 
   function product(id) { return PRODUCTS.find(item => item.id === id); }
   function image(id, alt) {
-    return '<div class="ph"><img src="images/' + id + '.jpg" alt="' + escapeHtml(alt) + '" loading="lazy" onerror="this.style.display=\'none\'"></div>';
+    return '<div class="ph"><img src="images/products/' + id + '.jpg" alt="' + escapeHtml(alt) + '" loading="lazy" onerror="this.style.display=\'none\'"></div>';
   }
   function escapeHtml(value) {
     return String(value ?? "").replace(/[&<>"']/g, char => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[char]));
