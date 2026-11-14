@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop | VECLÉRIA</title>
+  <meta name="description" content="Browse dresses, shoes, bags, jewellery and accessories from VECLÉRIA.">
+  <meta name="theme-color" content="#0f2e22">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="shop">
+  <a class="skip" href="#main">Skip to content</a>
+  <div id="siteHeader"></div>
+  <main id="main">
+    <section class="page-head"><div class="container"><span class="eyebrow">The collection</span><h1>Shop VECLÉRIA</h1><p class="lead" style="margin-inline:auto">Search, filter and save your favourites.</p></div></section>
+    <section class="section" style="padding-top:2rem"><div class="container shop-layout">
+      <aside class="filters" aria-label="Filters">
+        <h4>Search</h4><input class="input" id="q" type="search" placeholder="Search pieces" aria-label="Search pieces">
+        <h4>Category</h4><div class="chips" id="catChips"></div>
+        <h4>Saved</h4><div class="chips"><button class="chip" type="button" id="savedChip" aria-pressed="false">♡ Saved items only</button></div>
+      </aside>
+      <div>
+        <div class="toolbar"><span id="count" style="color:var(--muted)"></span>
+          <select class="input" id="sort" aria-label="Sort"><option value="featured">Sort: Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div>
+        <div class="grid" id="shopGrid" aria-live="polite"></div>
+      </div>
+    </div></section>
+  </main>
+  <div id="siteFooter"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
