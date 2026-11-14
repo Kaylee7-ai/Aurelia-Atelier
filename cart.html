@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Bag | VECLÉRIA</title>
+  <meta name="description" content="Review your VECLÉRIA shopping bag and place your order.">
+  <meta name="theme-color" content="#0f2e22">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="cart">
+  <a class="skip" href="#main">Skip to content</a>
+  <div id="siteHeader"></div>
+  <main id="main">
+    <section class="page-head"><div class="container"><span class="eyebrow">Shopping bag</span><h1>Your bag</h1></div></section>
+    <div class="container cart-layout">
+      <div><div id="cartItems"></div><p style="margin-top:1rem"><button class="link-btn" type="button" id="clearBtn">Clear bag</button> · <a class="link-btn" href="shop.html">Continue shopping</a></p></div>
+      <aside class="box sticky" aria-label="Order summary">
+        <h3>Order summary</h3>
+        <div id="sumRows"></div>
+        <div class="promo"><input class="input" id="promoInput" placeholder="Promo code" aria-label="Promo code"><button class="btn btn-line" type="button" id="applyPromo" style="padding-inline:1.4rem">Apply</button></div>
+        <h3 style="margin-top:1.6rem">Your details</h3>
+        <div class="field"><label for="cName">Full name</label><input class="input" id="cName" autocomplete="name"></div>
+        <div class="field"><label for="cPhone">Phone</label><input class="input" id="cPhone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="cAddr">Delivery address</label><input class="input" id="cAddr" autocomplete="street-address"></div>
+        <div class="field"><label for="cPay">Payment</label><select class="input" id="cPay"><option>Mobile money</option><option>Pay on delivery</option><option>Bank transfer</option><option>Card</option></select></div>
+        <div class="field"><label for="cNotes">Notes (optional)</label><textarea class="input" id="cNotes" style="min-height:80px"></textarea></div>
+        <a class="btn btn-wa btn-block" id="placeOrder" href="#" target="_blank" rel="noopener">Place order on WhatsApp ↗</a>
+        <p style="font-size:.8rem;margin:.9rem 0 0;text-align:center">We confirm availability, delivery and payment with you on WhatsApp. No payment is taken on this page.</p>
+      </aside>
+    </div>
+  </main>
+  <div id="siteFooter"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
