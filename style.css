@@ -178,3 +178,15 @@ select.input { cursor: pointer; } textarea.input { min-height: 110px; resize: ve
 .tile { background: linear-gradient(145deg, #244b3a, #0f2e22 62%, #081a13); }
 .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
 .tile img:not([src]), .tile img[src=""] { display: none; }
+
+
+/* VECLÉRIA product photo placeholders: no repeated stock images */
+.ph.ph-placeholder {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.45rem; min-height:260px; aspect-ratio:4/5; color:#d9c18c;
+  background:radial-gradient(circle at 20% 18%, rgba(220,195,143,.20), transparent 35%),
+             linear-gradient(145deg,#173b2d 0%,#0d241b 58%,#243f32 100%);
+  border:1px solid rgba(217,193,140,.18);
+}
+.ph.ph-placeholder span { font-family:Georgia,serif; letter-spacing:.22em; font-size:.78rem; }
+.ph.ph-placeholder small { color:rgba(255,250,239,.68); letter-spacing:.08em; text-transform:uppercase; font-size:.58rem; }
