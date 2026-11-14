@@ -20,5 +20,13 @@ The product catalogue uses distinct editorial stock photographs from Pexels. The
 ## License
 Review the [Pexels License](https://www.pexels.com/license/) before publishing or using any image in paid advertising. Do not imply that a person shown endorses VECLÉRIA, and replace stock imagery with actual product photographs before accepting orders for specific items.
 
+## Additional category searches
+- [Fascinator hats](https://www.pexels.com/search/fascinator%20hat/)
+- [Hair clips](https://www.pexels.com/search/hair%20clips/)
+- [Scrunchies](https://www.pexels.com/search/scrunchies/)
+- [Women's skirts](https://www.pexels.com/search/women%20skirt/)
+- [Women's belts](https://www.pexels.com/search/belt/)
+- [Women's bags](https://www.pexels.com/search/bags/)
+
 ## Catalogue status
-The site contains 160 sample product listings across 16 departments. It uses unique stock photos where available and a branded placeholder where a category-specific photo has not yet been selected. Sample prices and availability must be confirmed before launch.
+The site contains 160 sample product listings across 16 departments, each with a different stock photo. Sample prices and availability must be confirmed before launch.
