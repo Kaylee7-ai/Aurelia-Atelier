@@ -59,8 +59,31 @@
   let promoCode = read(KEYS.promo, "");
 
   function product(id) { return PRODUCTS.find(item => item.id === id); }
+  const PHOTO = {
+    dress: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85",
+    floralDress: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85",
+    top: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&q=85",
+    jacket: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=85",
+    trousers: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=900&q=85",
+    shoes: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=900&q=85",
+    heel: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=85",
+    bag: "https://images.unsplash.com/photo-1595341595379-cf0f0f13f971?auto=format&fit=crop&w=900&q=85",
+    cap: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=85",
+    jewellery: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=85",
+    accessories: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85",
+    kids: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=900&q=85"
+  };
+  const PRODUCT_PHOTO = {
+    p01:"dress",p02:"floralDress",p03:"dress",p04:"floralDress",
+    p05:"top",p06:"jacket",p07:"trousers",p08:"trousers",p09:"jacket",p10:"floralDress",
+    p11:"heel",p12:"heel",p13:"shoes",p14:"bag",p15:"bag",p16:"bag",
+    p17:"cap",p18:"accessories",p19:"accessories",p20:"accessories",
+    p21:"jewellery",p22:"jewellery",p23:"jewellery",p24:"accessories",p25:"accessories",
+    p26:"kids",p27:"kids",p28:"kids",p29:"kids",p30:"kids"
+  };
   function image(id, alt) {
-    return '<div class="ph"><img src="images/products/' + id + '.jpg" alt="' + escapeHtml(alt) + '" loading="lazy" onerror="this.style.display=\'none\'"></div>';
+    const src = PHOTO[PRODUCT_PHOTO[id] || "accessories"];
+    return '<div class="ph"><img src="' + src + '" alt="' + escapeHtml(alt) + '" loading="lazy" decoding="async" onerror="this.remove()"></div>';
   }
   function escapeHtml(value) {
     return String(value ?? "").replace(/[&<>"']/g, char => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[char]));
