@@ -1,78 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="VELCÉRIA — a modern fashion destination for clothing, shoes, jewellery and accessories." />
-  <meta name="theme-color" content="#ffffff" />
-  <title>VELCÉRIA | Modern Fashion, Curated</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" id="storeFavicon" />
-  <link rel="stylesheet" href="styles.css?v=velceria-cinematic-3d-1" />
-  <script src="supabase-config.js" defer></script>
-  <script src="script.js" defer></script>
-  <script type="module" src="three-scene.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VECLÉRIA | Luxury Fashion, Shoes, Jewellery & Accessories</title>
+  <meta name="description" content="VECLÉRIA is a premium fashion destination for dresses, shoes, bags, jewellery and accessories, with bespoke tailoring made to measure.">
+  <meta name="theme-color" content="#0f2e22">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="grain" aria-hidden="true"></div>
-  <header class="site-header">
-    <a class="wordmark" href="#top">VELCÉRIA</a>
-    <nav aria-label="Primary navigation">
-      <a href="#shop">New in</a><a href="#shop">Women</a><a href="#shop">Men</a><a href="#shop">Kids</a><a href="#shop">Accessories</a>
-    </nav>
-    <div class="header-actions">
-      <a class="header-cta" href="#shop">Explore collection</a><button class="bag-button" id="openCart" aria-label="Open shopping bag">Bag <span id="cartCount">0</span></button>
-    </div>
-  </header>
-
-  <main id="top">
+<body data-page="index">
+  <a class="skip" href="#main">Skip to content</a>
+  <div id="siteHeader"></div>
+  <main id="main">
     <section class="hero">
-      <div class="hero-stage" aria-label="Cinematic three-dimensional VECLÉRIA signature handbag showcase">
-        <div class="hero-scene-glow"></div><canvas id="velceria3d" aria-hidden="true"></canvas>
-        <img class="hero-garment" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1200&q=85" alt="Luxury handbag from the VECLÉRIA fashion edit" fetchpriority="high">
-        <div class="scene-caption"><span>OBJECT Nº 001</span><span>THE VECLÉRIA SIGNATURE</span></div>
-        <div class="hero-marker marker-a">VECLÉRIA / 01</div><div class="hero-marker marker-b">FORM IN MOTION</div>
-      </div>
-      <div class="hero-copy">
-        <p class="eyebrow">An independent fashion universe</p><h1>Form meets<br><em>feeling.</em></h1>
-        <p class="hero-sub">A considered world of clothing, shoes and objects. Discover pieces chosen for their character, crafted to make an entrance and made to move with you.</p>
-        <a class="hero-link" href="#shop">Explore the collection <span>↗</span></a>
-      </div>
-      <div class="hero-note">THE NEW EDIT<br><span>01 — VECLÉRIA</span></div>
-    </section>
-
-    <section class="intro-strip"><div class="strip-number">01</div><p>Discover the latest clothing, shoes and accessories. Find your look, choose your option and order with ease.</p><div class="strip-rule"></div></section>
-
-    <section id="shop" class="shop section-pad">
-      <div class="section-head"><div><p class="eyebrow">The VELCÉRIA edit</p><h2>Find your<br><em>next favourite.</em></h2></div><p class="shop-helper">Thoughtfully selected fashion across clothing, shoes, bags, jewellery and everyday finishing touches.</p></div>
-      <div class="collection-tools"><label class="search-field"><span class="sr-only">Search products</span><input id="productSearch" type="search" placeholder="Search the collection…" autocomplete="off"><span aria-hidden="true">⌕</span></label><label class="sort-field"><span>Sort by</span><select id="productSort"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name: A–Z</option></select></label></div>
-      <div class="category-chips" id="categoryFilters" aria-label="Filter by department"><button class="category-chip active" data-category="All" aria-pressed="true">All pieces</button><button class="category-chip" data-category="Women">Women</button><button class="category-chip" data-category="Men">Men</button><button class="category-chip" data-category="Kids">Kids</button><button class="category-chip" data-category="Shoes">Shoes</button><button class="category-chip" data-category="Accessories">Accessories</button><button class="category-chip" data-category="Jewellery">Jewellery</button></div>
-      <p class="results-count" id="resultsCount" aria-live="polite">Loading collection…</p>
-      <div class="product-grid" id="productGrid"><div class="loading-card">Loading the collection…</div></div>
-    </section>
-
-    <section id="craft" class="atelier section-pad">
-      <div class="atelier-visual"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=88" alt="Friends exploring a contemporary fashion collection" loading="lazy"><span class="visual-stamp">VELCÉRIA / THE EDIT</span></div>
-      <div class="atelier-copy"><p class="eyebrow">The VELCÉRIA point of view</p><h2>Style, without<br><em>standing still.</em></h2><p>A considered mix of standout pieces and everyday essentials. Explore confident colour, expressive details and easy ways to make every look your own.</p>
-        <div class="fact-row"><span>01</span><strong>Clothing</strong><small>Everyday to statement</small></div><div class="fact-row"><span>02</span><strong>Shoes & bags</strong><small>Finishing touches</small></div><div class="fact-row"><span>03</span><strong>Accessories</strong><small>Details that stand out</small></div>
+      <canvas id="hero3d" aria-hidden="true"></canvas>
+      <div class="container hero-inner">
+        <span class="eyebrow">The new season</span>
+        <h1>Dress with <em class="gold-text">intention.</em></h1>
+        <p>Premium dresses, shoes, bags and jewellery, designed to be worn and remembered. Made to measure on request.</p>
+        <div class="hero-actions"><a class="btn btn-gold" href="shop.html">Shop the collection ↗</a><a class="btn btn-light" href="customise.html">Customise a piece</a></div>
       </div>
     </section>
-
-    <section id="journal" class="journal section-pad"><div class="journal-top"><p class="eyebrow">From the journal</p><a class="journal-arrow" href="#shop">Shop the edit <span>↗</span></a></div><div class="journal-title">The details<br><em>do the talking.</em></div>
-      <div class="journal-items"><a href="#craft" class="journal-item"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=700&q=85" alt="A curated selection of colourful fashion pieces" loading="lazy"><span>Style note / 04</span><strong>The colour that changes the whole look</strong><span>↗</span></a><a href="#craft" class="journal-item"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85" alt="Fashion shopping and personal style" loading="lazy"><span>Edit note / 08</span><strong>Small details. A completely different feel.</strong><span>↗</span></a></div>
-    </section>
-
-    <section class="contact section-pad"><div class="contact-card"><p class="contact-kicker">Need a little help?</p><h2>Talk to<br><em>our team.</em></h2><p>Ask about sizing, availability, fittings or delivery.</p><a class="contact-cta" id="whatsappLink" href="#">Chat on WhatsApp <span>↗</span></a></div><div class="contact-side"><span id="storeAddress">Ghana</span><span>Online orders</span><span id="storePhone"></span></div></section>
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+    <section class="section"><div class="container">
+      <div class="center reveal"><span class="eyebrow">Collections</span><h2>Shop by category</h2></div>
+      <div class="tiles"><a class="tile ph reveal" href="shop.html?cat=Dresses"><img src="images/cat-dresses.jpg" alt="" loading="lazy" width="500" height="660"><span>Dresses</span></a><a class="tile ph reveal" href="shop.html?cat=Shoes"><img src="images/cat-shoes.jpg" alt="" loading="lazy" width="500" height="660"><span>Shoes</span></a><a class="tile ph reveal" href="shop.html?cat=Bags"><img src="images/cat-bags.jpg" alt="" loading="lazy" width="500" height="660"><span>Bags</span></a><a class="tile ph reveal" href="shop.html?cat=Jewellery"><img src="images/cat-jewellery.jpg" alt="" loading="lazy" width="500" height="660"><span>Jewellery</span></a><a class="tile ph reveal" href="shop.html?cat=Accessories"><img src="images/cat-accessories.jpg" alt="" loading="lazy" width="500" height="660"><span>Accessories</span></a></div>
+    </div></section>
+    <section class="section" style="padding-top:0"><div class="container">
+      <div class="center reveal"><span class="eyebrow">Featured</span><h2>The pieces everyone wants</h2></div>
+      <div class="grid" id="featured" style="margin-top:2.5rem"></div>
+      <div class="center" style="margin-top:3rem"><a class="btn btn-dark" href="shop.html">View all pieces</a></div>
+    </div></section>
+    <section class="section band"><div class="container split">
+      <div class="reveal"><span class="eyebrow" style="color:var(--gold-light)">Bespoke</span><h2>Made for you, <span class="gold-text">only you.</span></h2>
+        <p class="lead">Choose your fabric, colour, fit and neckline, share your measurements, and we create a piece that is entirely yours.</p>
+        <a class="btn btn-gold" href="customise.html">Start a custom piece ↗</a></div>
+      <div class="ph reveal"><img src="images/bespoke.jpg" alt="" loading="lazy" width="800" height="1000"></div>
+    </div></section>
+    <section class="section"><div class="container">
+      <div class="center reveal"><span class="eyebrow">The Journal</span><h2>Style, stories and inspiration</h2></div>
+      <div class="posts"><article class="post reveal"><div class="ph"><img src="images/journal-1.jpg" alt="" loading="lazy" width="600" height="450"></div><span class="meta">Style guide</span><h3>The capsule wardrobe, refined</h3><a class="link-btn" href="journal.html">Read more</a></article><article class="post reveal"><div class="ph"><img src="images/journal-2.jpg" alt="" loading="lazy" width="600" height="450"></div><span class="meta">Behind the brand</span><h3>Why we obsess over fabric</h3><a class="link-btn" href="journal.html">Read more</a></article><article class="post reveal"><div class="ph"><img src="images/journal-3.jpg" alt="" loading="lazy" width="600" height="450"></div><span class="meta">Occasion</span><h3>Dressing for a wedding as a guest</h3><a class="link-btn" href="journal.html">Read more</a></article></div>
+    </div></section>
   </main>
-
-  <footer class="site-footer"><span id="footerBrand">VELCÉRIA</span><span>© 2026</span><span>Online store</span></footer>
-
-  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
-  <aside class="drawer" id="cartDrawer" aria-label="Shopping bag" aria-hidden="true">
-    <div class="drawer-head"><div><p class="eyebrow">YOUR BAG</p><h2>Selected pieces.</h2></div><button class="close-button" id="closeCart">×</button></div>
-    <div id="cartItems" class="cart-items"></div><div class="cart-total"><span>Subtotal</span><strong id="cartTotal">GHS 0.00</strong></div><button class="drawer-checkout" id="startCheckout">Continue to checkout</button>
-  </aside>
-
-  <div class="modal hidden" id="productModal" role="dialog" aria-modal="true" aria-labelledby="quickViewName"><div class="modal-card product-modal-card"><button class="modal-close" data-close="productModal" aria-label="Close product details">×</button><div class="quick-view-layout"><div class="quick-view-image"><img id="quickViewImage" src="" alt=""></div><div class="quick-view-copy"><p class="eyebrow" id="quickViewCategory">COLLECTION</p><h2 id="quickViewName">Product name</h2><p id="quickViewDescription"></p><strong class="quick-view-price" id="quickViewPrice"></strong><label class="variant-label" for="quickViewVariant">Choose size / option</label><select id="quickViewVariant"></select><p class="variant-stock" id="quickViewStock"></p><button class="contact-cta full" id="quickViewAdd" type="button">Add to bag <span>↗</span></button></div></div></div></div>
-  <div class="modal hidden" id="checkoutModal"><div class="modal-card"><button class="modal-close" data-close="checkoutModal">×</button><p class="eyebrow">CHECKOUT</p><h2>Place your order.</h2><form id="checkoutForm"><input id="customerName" required autocomplete="name" placeholder="Full name"><input id="customerPhone" required type="tel" autocomplete="tel" placeholder="Phone / WhatsApp"><input id="customerEmail" type="email" autocomplete="email" placeholder="Email (optional)"><div class="checkout-location"><input id="customerRegion" required placeholder="Region"><input id="customerCity" required placeholder="City / town"></div><textarea id="customerAddress" required rows="3" autocomplete="street-address" placeholder="Exact delivery address, house number and landmarks"></textarea><div class="payment-choice"><span>Payment method</span><strong>Cash on delivery</strong><small>Pay when your order is delivered. The boutique will contact you to confirm your order.</small></div><div class="checkout-summary"><span>Total</span><strong id="checkoutTotal">GHS 0.00</strong></div><p class="checkout-note">Your order will be recorded. The boutique will contact you to confirm delivery arrangements. Payment is currently cash on delivery.</p><button class="contact-cta full" type="submit">Place order <span>↗</span></button></form><div id="checkoutResult" class="form-result"></div></div></div>
+  <div id="siteFooter"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="hero3d.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
