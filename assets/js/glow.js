@@ -1,0 +1,2 @@
+document.addEventListener("mousemove",e=>{const c=e.target.closest&&e.target.closest(".card");if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty("--mx",e.clientX-r.left+"px");c.style.setProperty("--my",e.clientY-r.top+"px")});
+addEventListener("scroll",()=>{const t=document.querySelector(".top");if(t)t.classList.toggle("small",scrollY>60)},{passive:true});
