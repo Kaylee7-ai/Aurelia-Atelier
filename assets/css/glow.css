@@ -1,0 +1,8 @@
+.btn{transition:box-shadow .25s,transform .25s}.btn:hover{box-shadow:0 0 24px #ff3d8bcc,0 0 48px #ffb34755;transform:translateY(-2px)}
+.card{transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:#ff3d8b88;box-shadow:0 10px 36px #ff3d8b33}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(180px circle at var(--mx,50%) var(--my,50%),#ffffff1c,transparent 60%);opacity:0;transition:opacity .25s}.card:hover::after{opacity:1}
+.orb{animation:pulse 6s ease-in-out infinite}@keyframes pulse{50%{transform:scale(1.15);opacity:.75}}
+.logo{filter:drop-shadow(0 0 10px #ff3d8b66)}.cat{transition:transform .25s,box-shadow .25s}.cat:hover{transform:scale(1.03);box-shadow:0 0 30px hsl(var(--h) 80% 50% / .5)}
+.top.small{padding-block:.4rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
