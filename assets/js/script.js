@@ -23,9 +23,44 @@ $("#hdr").innerHTML=`<div class="announce">Free delivery in Accra on orders over
 $("#ftr").innerHTML=`<footer><div><h3>VECLRA</h3><p>Fashion, beauty and lifestyle, delivered across Ghana.</p></div><div><a href="${ROOT}pages/information/about.html">About us</a><br><a href="${ROOT}pages/information/contact.html">Contact</a><br><a href="https://wa.me/${WA}">WhatsApp</a></div><div><p>&copy; ${new Date().getFullYear()} VECLRA</p></div></footer>`;
 
 const R={},after={};
+
+const dressGallery = `<section class="sec dress-edit" aria-labelledby="dress-edit-title">
+  <div class="dress-edit-head">
+    <div>
+      <span class="dress-eyebrow">THE VECLRA STYLE EDIT</span>
+      <h2 id="dress-edit-title">Dresses worth dressing up for.</h2>
+      <p>Explore statement occasionwear, modern African-inspired looks and elegant silhouettes.</p>
+    </div>
+    <a class="dress-shop-link" href="${ROOT}pages/categories/women.html">Explore women's fashion <span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="dress-grid">
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: teal evening dress">
+      <img src="https://images.pexels.com/photos/20224510/pexels-photo-20224510.jpeg?cs=srgb&dl=pexels-king-shooter-664873673-20224510.jpg&fm=jpg" alt="Model wearing an elegant teal floor-length evening dress in a studio" loading="lazy" decoding="async">
+      <span class="dress-look-index">01 / EVENING</span>
+      <span class="dress-look-title">The evening edit</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: red statement gown">
+      <img src="https://images.pexels.com/photos/33928336/pexels-photo-33928336.jpeg?cs=srgb&dl=pexels-bule-2127348686-33928336.jpg&fm=jpg" alt="Model wearing a red one-shoulder floor-length statement gown" loading="lazy" decoding="async">
+      <span class="dress-look-index">02 / STATEMENT</span>
+      <span class="dress-look-title">Made to be noticed</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: modern African-inspired dress">
+      <img src="https://images.pexels.com/photos/28649427/pexels-photo-28649427.jpeg?cs=srgb&dl=pexels-mkalesh-28649427.jpg&fm=jpg" alt="Model in a white dress with a colourful African-inspired print bodice" loading="lazy" decoding="async">
+      <span class="dress-look-index">03 / MODERN AFRICAN</span>
+      <span class="dress-look-title">A touch of culture</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: colourful printed maxi dresses">
+      <img src="https://images.pexels.com/photos/31094920/pexels-photo-31094920.jpeg?cs=srgb&dl=pexels-pedrofurtadoo-31094920.jpg&fm=jpg" alt="Two models wearing colourful floral maxi dresses in a studio" loading="lazy" decoding="async">
+      <span class="dress-look-index">04 / PRINTS</span>
+      <span class="dress-look-title">Prints in full bloom</span>
+    </a>
+  </div>
+  <p class="dress-photo-note">Lookbook photos are editorial style inspiration, not exact product photos or confirmation of stock. Please confirm the actual design, sizes, price and availability before ordering.</p>
+</section>`;
 R.home=()=>`<section class="hero"><div class="orb"></div><h1>Dress like the night is yours.</h1><p>Women, men, children, shoes, bags, jewellery and beauty, delivered across Ghana.</p><div class="hb"><a class="btn" href="${ROOT}pages/shop.html">Shop the collection</a><a class="btn ghost" href="${ROOT}pages/new-arrivals.html">See what is new</a></div></section>`
 +sec("Shop by category",`<div class="cats">${Object.entries(CATS).map(([k,v],i)=>`<a class="cat" style="--h:${i*45+300}" href="${ROOT}pages/categories/${k}.html">${v}</a>`).join("")}</div>`)
 +sec("New arrivals",grid(P.filter(p=>p.badge==="New").slice(0,4)),ROOT+"pages/new-arrivals.html")
++dressGallery
 +`<section class="promo"><h2>Up to 25% off selected pieces</h2><p>Seasonal sale, while stock lasts.</p><a class="btn" href="${ROOT}pages/sale.html">Shop the sale</a></section>`
 +sec("Trending now",grid(P.filter((p,i)=>i%2===0).slice(0,4)),ROOT+"pages/shop.html")
 +`<section class="sec narrow"><h2>Join the list</h2><form id="nl"><input type="email" required placeholder="Your email" aria-label="Email"><button class="btn sm">Subscribe</button></form></section>`;
