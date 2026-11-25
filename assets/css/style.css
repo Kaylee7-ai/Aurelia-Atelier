@@ -20,12 +20,12 @@ h1{font-size:clamp(2rem,6vw,3.4rem)}h2{font-size:1.8rem}
 .btn{display:inline-block;border:0;cursor:pointer;background:var(--grad);color:#1a0a14;font:700 1rem "DM Sans",sans-serif;padding:.8rem 1.5rem;border-radius:999px}
 .btn.sm{padding:.45rem 1rem;font-size:.85rem;width:100%}.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--mut)}.btn.wa{background:#25d366;color:#052e16}
 .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.9rem}
-.cat{aspect-ratio:4/3;border-radius:18px;display:flex;align-items:flex-end;padding:1rem;font:600 1.2rem "Playfair Display",serif;background:linear-gradient(160deg,hsl(var(--h) 70% 38%),hsl(calc(var(--h) + 40) 60% 18%));border:1px solid var(--line)}
+.cat{aspect-ratio:4/3;border-radius:18px;display:flex;align-items:flex-end;padding:1rem;font:600 1.2rem "Playfair Display",serif;background:linear-gradient(180deg,rgba(13,10,24,.04) 15%,rgba(13,10,24,.88) 100%),var(--cat-photo) center/cover no-repeat,#30213b;border:1px solid var(--line);box-shadow:0 10px 28px #0005;transition:transform .25s,box-shadow .25s}.cat:hover{transform:translateY(-4px);box-shadow:0 14px 34px #0008}.cat span{position:relative;text-shadow:0 2px 12px #000}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:1rem}
 .card{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:18px;overflow:hidden}
 .ph{aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(150deg,hsl(var(--h) 65% 45%),hsl(calc(var(--h) + 30) 55% 20%))}
 .ph b{font:700 4rem "Playfair Display",serif;opacity:.85}.ph small{opacity:.7}
-.card img{aspect-ratio:3/4;object-fit:cover;width:100%}
+.card img{aspect-ratio:3/4;object-fit:cover;object-position:center;width:100%;background:#24192b;transition:transform .4s}.card:hover img{transform:scale(1.035)}
 .ci{padding:.8rem}.ci h3{font:600 1rem "DM Sans",sans-serif;margin:0}.ci p{margin:.2rem 0 .6rem;color:var(--amber)}s{color:var(--mut)}
 .badge{position:absolute;left:.6rem;top:.6rem;z-index:2;background:var(--pink);font-style:normal;font-size:.75rem;font-weight:700;padding:.15rem .6rem;border-radius:999px}
 .heart{position:absolute;right:.5rem;top:.5rem;z-index:2;border:0;background:#0d0a18aa;color:var(--mut);width:2.2rem;height:2.2rem;border-radius:50%;cursor:pointer;font-size:1.1rem}.heart.on{color:var(--pink)}
