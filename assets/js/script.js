@@ -34,29 +34,57 @@ const dressGallery = `<section class="sec dress-edit" aria-labelledby="dress-edi
     <a class="dress-shop-link" href="${ROOT}pages/categories/women.html">Explore women's fashion <span aria-hidden="true">↗</span></a>
   </div>
   <div class="dress-grid">
-    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: teal evening dress">
-      <img src="https://images.pexels.com/photos/20224511/pexels-photo-20224511.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Model in a teal silk maxi dress holding flowers in a studio" loading="eager" fetchpriority="high" decoding="async" referrerpolicy="no-referrer">
-      <span class="dress-look-index">01 / EVENING</span>
-      <span class="dress-look-title">The evening edit</span>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore eveningwear">
+      <img src="https://images.pexels.com/photos/20224511/pexels-photo-20224511.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Teal evening dress editorial look" loading="eager" fetchpriority="high" decoding="async">
+      <span class="dress-look-index">01 / EVENING</span><span class="dress-look-title">The evening edit</span>
     </a>
-    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: red statement gown">
-      <img src="https://images.pexels.com/photos/32111281/pexels-photo-32111281.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Model in a flowing red dress photographed outdoors in Ghana" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-      <span class="dress-look-index">02 / STATEMENT</span>
-      <span class="dress-look-title">Made to be noticed</span>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore red statement dresses">
+      <img src="https://images.pexels.com/photos/32111281/pexels-photo-32111281.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Red statement dress editorial look" loading="lazy" decoding="async">
+      <span class="dress-look-index">02 / STATEMENT</span><span class="dress-look-title">Made to be noticed</span>
     </a>
-    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: modern African-inspired dress">
-      <img src="https://images.pexels.com/photos/33939065/pexels-photo-33939065.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Model wearing a pink and burgundy patterned Ankara dress with a matching headwrap" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-      <span class="dress-look-index">03 / MODERN AFRICAN</span>
-      <span class="dress-look-title">A touch of culture</span>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore African-inspired dresses">
+      <img src="https://images.pexels.com/photos/33939065/pexels-photo-33939065.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Pink and burgundy African-print dress" loading="lazy" decoding="async">
+      <span class="dress-look-index">03 / MODERN AFRICAN</span><span class="dress-look-title">A touch of culture</span>
     </a>
-    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: colourful printed maxi dresses">
-      <img src="https://images.pexels.com/photos/31094898/pexels-photo-31094898.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Model wearing an elegant beige fitted dress in a bright fashion studio" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-      <span class="dress-look-index">04 / PRINTS</span>
-      <span class="dress-look-title">Prints in full bloom</span>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore elegant occasion dresses">
+      <img src="https://images.pexels.com/photos/31094898/pexels-photo-31094898.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Elegant beige fitted dress editorial look" loading="lazy" decoding="async">
+      <span class="dress-look-index">04 / MINIMAL</span><span class="dress-look-title">Quiet elegance</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore colourful maxi dresses">
+      <img src="https://images.pexels.com/photos/8060452/pexels-photo-8060452.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Colourful patterned maxi dress" loading="lazy" decoding="async">
+      <span class="dress-look-index">05 / COLOUR</span><span class="dress-look-title">Colour with confidence</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore metallic evening dresses">
+      <img src="https://images.pexels.com/photos/13530000/pexels-photo-13530000.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Metallic evening dress" loading="lazy" decoding="async">
+      <span class="dress-look-index">06 / AFTER DARK</span><span class="dress-look-title">After-dark shine</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore Kente-inspired dresses">
+      <img src="https://images.pexels.com/photos/13998586/pexels-photo-13998586.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Contemporary African pattern dress photographed in Ghana" loading="lazy" decoding="async">
+      <span class="dress-look-index">07 / HERITAGE</span><span class="dress-look-title">Heritage reimagined</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore elegant traditional dresses">
+      <img src="https://images.pexels.com/photos/8542080/pexels-photo-8542080.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Elegant traditional dress editorial look" loading="lazy" decoding="async">
+      <span class="dress-look-index">08 / TIMELESS</span><span class="dress-look-title">Timeless details</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore blue evening gowns">
+      <img src="https://images.pexels.com/photos/13153053/pexels-photo-13153053.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Elegant blue evening gown" loading="lazy" decoding="async">
+      <span class="dress-look-index">09 / BLUE HOUR</span><span class="dress-look-title">The blue-hour gown</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore green beaded gowns">
+      <img src="https://images.pexels.com/photos/36528615/pexels-photo-36528615.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Green beaded evening gown photographed in Ghana" loading="lazy" decoding="async">
+      <span class="dress-look-index">10 / COUTURE</span><span class="dress-look-title">A little occasion magic</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore African print fashion">
+      <img src="https://images.pexels.com/photos/20660460/pexels-photo-20660460.jpeg?auto=compress&cs=tinysrgb&w=900" alt="African-print dress in a fashion studio" loading="lazy" decoding="async">
+      <span class="dress-look-index">11 / PRINT</span><span class="dress-look-title">Prints in full bloom</span>
+    </a>
+    <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore vibrant African dresses">
+      <img src="https://images.pexels.com/photos/33561263/pexels-photo-33561263.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Vibrant African-print dress editorial look" loading="lazy" decoding="async">
+      <span class="dress-look-index">12 / EDITORIAL</span><span class="dress-look-title">The statement collection</span>
     </a>
   </div>
-  <p class="dress-photo-note">Lookbook photos are editorial style inspiration, not exact product photos or confirmation of stock. Please confirm the actual design, sizes, price and availability before ordering.</p>
-</section>`;
+  <p class="dress-photo-note">These 12 editorial photos are style inspiration, not confirmed products or stock photos. Product images, sizes, prices and availability should be confirmed before orders are placed.</p>
+</section>`
 R.home=()=>`<section class="hero"><div class="orb"></div><h1>Dress like the night is yours.</h1><p>Women, men, children, shoes, bags, jewellery and beauty, delivered across Ghana.</p><div class="hb"><a class="btn" href="${ROOT}pages/shop.html">Shop the collection</a><a class="btn ghost" href="${ROOT}pages/new-arrivals.html">See what is new</a></div></section>`
 +sec("Shop by category",`<div class="cats">${Object.entries(CATS).map(([k,v],i)=>`<a class="cat" style="--h:${i*45+300}" href="${ROOT}pages/categories/${k}.html">${v}</a>`).join("")}</div>`)
 +sec("New arrivals",grid(P.filter(p=>p.badge==="New").slice(0,4)),ROOT+"pages/new-arrivals.html")
