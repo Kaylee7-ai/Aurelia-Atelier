@@ -85,7 +85,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .dress-shop-link span { margin-left: .3rem; }
 .dress-grid {
   display: grid;
-  grid-template-columns: repeat(4,minmax(0,1fr));
+  grid-template-columns: repeat(3,minmax(0,1fr));
   gap: .9rem;
 }
 .dress-look {
