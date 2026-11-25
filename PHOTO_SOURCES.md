@@ -41,3 +41,14 @@ The homepage now includes a four-photo editorial dress feature. These photograph
 - Pedro Furtado via Pexels — floral maxi dress lookbook: https://images.pexels.com/photos/31094920/pexels-photo-31094920.jpeg
 
 Pexels states that its photos may be used for commercial projects, subject to the Pexels License. Do not imply that any depicted model endorses VECLRA. Replace the editorial photos with the boutique's own product photographs before presenting any specific item as available for purchase.
+
+
+## Corrected homepage dress lookbook sources
+The homepage gallery uses the following corrected Pexels photo files. The earlier image IDs in the first gallery commit were incorrect and should not be reused.
+
+- [Teal silk maxi dress with flowers — King Shooter](https://www.pexels.com/photo/woman-in-silk-maxi-dress-holds-flowers-20224511/)
+- [Flowing red dress — Kweku Pozybhle Directs](https://www.pexels.com/photo/stunning-portrait-of-a-woman-in-vibrant-red-dress-32111281/) — photographed in Tema, Ghana.
+- [Pink patterned Ankara dress — real gayu](https://www.pexels.com/photo/elegant-african-woman-in-traditional-ankara-dress-33939066/)
+- [Beige dress — Pedro Furtado](https://www.pexels.com/photo/elegant-woman-in-beige-dress-by-mirror-31094898/)
+
+The images are editorial inspiration only. They are not representations of confirmed inventory or endorsements of the boutique. Review the current [Pexels License](https://www.pexels.com/license/) before using these photos in paid advertising.
