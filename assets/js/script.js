@@ -35,22 +35,22 @@ const dressGallery = `<section class="sec dress-edit" aria-labelledby="dress-edi
   </div>
   <div class="dress-grid">
     <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: teal evening dress">
-      <img src="https://images.pexels.com/photos/20224510/pexels-photo-20224510.jpeg?cs=srgb&dl=pexels-king-shooter-664873673-20224510.jpg&fm=jpg" alt="Model wearing an elegant teal floor-length evening dress in a studio" loading="lazy" decoding="async">
+      <img src="https://images.pexels.com/photos/20224511/pexels-photo-20224511.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Model in a teal silk maxi dress holding flowers in a studio" loading="eager" fetchpriority="high" decoding="async" referrerpolicy="no-referrer">
       <span class="dress-look-index">01 / EVENING</span>
       <span class="dress-look-title">The evening edit</span>
     </a>
     <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: red statement gown">
-      <img src="https://images.pexels.com/photos/33928336/pexels-photo-33928336.jpeg?cs=srgb&dl=pexels-bule-2127348686-33928336.jpg&fm=jpg" alt="Model wearing a red one-shoulder floor-length statement gown" loading="lazy" decoding="async">
+      <img src="https://images.pexels.com/photos/32111281/pexels-photo-32111281.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Model in a flowing red dress photographed outdoors in Ghana" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="dress-look-index">02 / STATEMENT</span>
       <span class="dress-look-title">Made to be noticed</span>
     </a>
     <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: modern African-inspired dress">
-      <img src="https://images.pexels.com/photos/28649427/pexels-photo-28649427.jpeg?cs=srgb&dl=pexels-mkalesh-28649427.jpg&fm=jpg" alt="Model in a white dress with a colourful African-inspired print bodice" loading="lazy" decoding="async">
+      <img src="https://images.pexels.com/photos/33939065/pexels-photo-33939065.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Model wearing a pink and burgundy patterned Ankara dress with a matching headwrap" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="dress-look-index">03 / MODERN AFRICAN</span>
       <span class="dress-look-title">A touch of culture</span>
     </a>
     <a class="dress-look" href="${ROOT}pages/categories/women.html" aria-label="Explore women's fashion: colourful printed maxi dresses">
-      <img src="https://images.pexels.com/photos/31094920/pexels-photo-31094920.jpeg?cs=srgb&dl=pexels-pedrofurtadoo-31094920.jpg&fm=jpg" alt="Two models wearing colourful floral maxi dresses in a studio" loading="lazy" decoding="async">
+      <img src="https://images.pexels.com/photos/31094898/pexels-photo-31094898.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Model wearing an elegant beige fitted dress in a bright fashion studio" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="dress-look-index">04 / PRINTS</span>
       <span class="dress-look-title">Prints in full bloom</span>
     </a>
