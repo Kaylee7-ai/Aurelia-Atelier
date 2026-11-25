@@ -30,3 +30,14 @@ Review the [Pexels License](https://www.pexels.com/license/) before publishing o
 
 ## Catalogue status
 The site contains 160 sample product listings across 16 departments, each with a different stock photo. Sample prices and availability must be confirmed before launch.
+
+
+## Homepage dress lookbook photos
+The homepage now includes a four-photo editorial dress feature. These photographs are used as style inspiration only; they do not represent confirmed VECLRA inventory, exact product designs or product availability.
+
+- King Shooter via Pexels — teal evening dress: https://www.pexels.com/photo/studio-shot-of-a-young-woman-in-a-dress-and-a-glamour-makeup-look-20224510/
+- Bule via Pexels — red statement gown: https://images.pexels.com/photos/33928336/pexels-photo-33928336.jpeg
+- Mkalesh via Pexels — white dress with an African-inspired print bodice: https://images.pexels.com/photos/28649427/pexels-photo-28649427.jpeg
+- Pedro Furtado via Pexels — floral maxi dress lookbook: https://images.pexels.com/photos/31094920/pexels-photo-31094920.jpeg
+
+Pexels states that its photos may be used for commercial projects, subject to the Pexels License. Do not imply that any depicted model endorses VECLRA. Replace the editorial photos with the boutique's own product photographs before presenting any specific item as available for purchase.
